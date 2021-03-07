@@ -27,11 +27,11 @@ UFOtable();
 
 //Listen for events and search through the date/time column to find rows that 
 //match user input.
-var inputfilter1 = d3.select('#filter-btn');
-var inputfilter2 = d3.select('form')
+var inputfilter1 = d3.select("#filter-btn");
+var inputfilter2 = d3.select("form");
 
-inputfilter1.on("click", filterTable)
-inputfilter2.on("submit", filterTable)
+inputfilter1.on("click", filterTable);
+inputfilter2.on("submit", filterTable);
 
 
 //Function to take user input and filter the table based on the request
@@ -43,7 +43,7 @@ function filterTable() {
     var userinput = d3.select('#datetime').property('value');
     console.log(userinput);
 
-    var datafilter = tableData.filter(data => data.datetime == userinput);
+    var datafilter = tableData.filter(data => data.datetime === userinput);
     console.log(datafilter);
 
     //Clear table data
