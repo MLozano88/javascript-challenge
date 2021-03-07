@@ -28,9 +28,11 @@ UFOtable();
 //Listen for events and search through the date/time column to find rows that 
 //match user input.
 var inputfilter1 = d3.select('#filter-btn');
-
+var inputfilter2 = d3.select('form')
 
 inputfilter1.on("click", filterTable)
+inputfilter2.on("submit", filterTable)
+
 
 //Function to take user input and filter the table based on the request
 function filterTable() {
@@ -51,16 +53,15 @@ function filterTable() {
     datafilter.forEach(ufo => {
 
         //Reuse the format from the UFOtable function
-        var nextRow = tbody.append('tr');
+        var newRow = tbody.append('tr');
 
         //create new rows of data for every UFO sighting
-        nextRow.append('td').text(data.datetime);
-        nextRow.append('td').text(data.city);
-        nextRow.append('td').text(data.state);
-        nextRow.append('td').text(data.country);
-        nextRow.append('td').text(data.shape);
-        nextRow.append('td').text(data.durationMinutes);
-        nextRow.append('td').text(data.comments);
+        newRow.append('td').text(data.datetime);
+        newRow.append('td').text(data.city);
+        newRow.append('td').text(data.state);
+        newRow.append('td').text(data.country);
+        newRow.append('td').text(data.shape);
+        newRow.append('td').text(data.durationMinutes);
+        newRow.append('td').text(data.comments);
     });
 };
-
