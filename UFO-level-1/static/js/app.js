@@ -22,5 +22,23 @@ function UFOtable() {tableData.map (data =>{
 
 }
 
-//Show table to make sure its working
+//Show table
 UFOtable();
+
+//Listen for events and search through the date/time column to find rows that 
+//match user input.
+var inputfilter1 = d3.select('#filter-btn');
+
+
+inputfilter1.on("click", filterTable)
+
+//Function to take user input and filter the table based on the request
+function filterTable() {
+
+    d3.event.preventDefault();
+
+    //Use date/time values to filter data
+    var userinput = d3.select('#datetime').property('value');
+    console.log(userinput);
+}
+
