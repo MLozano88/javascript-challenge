@@ -40,5 +40,27 @@ function filterTable() {
     //Use date/time values to filter data
     var userinput = d3.select('#datetime').property('value');
     console.log(userinput);
-}
+
+    var datafilter = tableData.filter(data => data.datetime == userinput);
+    console.log(datafilter);
+
+    //Clear table data
+    tbody.html("");
+
+    //Loop through all the data to append the rows that match the userinput
+    datafilter.forEach(ufo => {
+
+        //Reuse the format from the UFOtable function
+        var nextRow = tbody.append('tr');
+
+        //create new rows of data for every UFO sighting
+        nextRow.append('td').text(data.datetime);
+        nextRow.append('td').text(data.city);
+        nextRow.append('td').text(data.state);
+        nextRow.append('td').text(data.country);
+        nextRow.append('td').text(data.shape);
+        nextRow.append('td').text(data.durationMinutes);
+        nextRow.append('td').text(data.comments);
+    });
+};
 
